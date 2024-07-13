@@ -1,11 +1,6 @@
-# Создание директории для старых репозиториев, если она не существует
 mkdir -p /etc/yum.repos.d/old
-
-# Перемещение старых репозиториев CentOS и EPEL в директорию old
 mv /etc/yum.repos.d/CentOS*.repo /etc/yum.repos.d/old/
 mv /etc/yum.repos.d/epel*.repo /etc/yum.repos.d/old/
-
-# Добавление новых репозиториев CentOS
 cat <<EOF > /etc/yum.repos.d/CentOS.repo
 [base]
 name=CentOS-7.9.2009 - Base
@@ -52,7 +47,6 @@ enabled=0
 metadata_expire=never
 EOF
 
-# Добавление новых репозиториев EPEL
 cat <<EOF > /etc/yum.repos.d/epel.repo
 [epel]
 name=Extra Packages for Enterprise Linux 7 - \$basearch
